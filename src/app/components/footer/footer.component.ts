@@ -1,11 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
+import { Routes, RouterModule, RouterLink } from '@angular/router';
+
+const approutes: Routes =[
+  {
+    path: '',
+   loadChildren:'./turns/turns.module#TurnsPageModule'
+}
+];
 
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
-  styleUrls: ['./footer.component.scss'],
+  styleUrls: ['./footer.component.scss']
 })
+
+
 export class FooterComponent implements OnInit {
 
   constructor( public alertController: AlertController) { }
@@ -34,5 +44,9 @@ export class FooterComponent implements OnInit {
     });
 
     await alert.present();
+  }
+
+  async MostrarTurns(){
+  
   }
 }
