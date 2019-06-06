@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-header',
@@ -7,8 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(public alertController: AlertController) { }
 
   ngOnInit() {}
+
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      header: 'SOS',
+      subHeader: '',
+      message: 'Carabineros: 133',
+      buttons: ['OK']
+    });
+
+    await alert.present();
+  }
 
 }

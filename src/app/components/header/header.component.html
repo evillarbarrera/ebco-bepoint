@@ -1,12 +1,12 @@
 <ion-header>
     <ion-toolbar>
         <img class="img_log" src="assets/img/logo.png">
-        <img class="img_sos" src="assets/img/sos.png">
+        <img (click)="presentAlert()" class="img_sos" src="assets/img/sos.png">
     </ion-toolbar>
-    <ion-list type="ios" style="background-color: red">
+    <div>
         <ion-item>
             <ion-avatar slot="start"><img src="https://us.123rf.com/450wm/garikprost/garikprost1702/garikprost170200021/73033781-icono-avatar-guardia-en-gafas-negras.jpg?ver=6"></ion-avatar>
             <ion-card-subtitle>Bienvenido:</ion-card-subtitle>
         </ion-item>
-    </ion-list>
+    </div>
 </ion-header>
