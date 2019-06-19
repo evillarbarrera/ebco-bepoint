@@ -1,5 +1,7 @@
 {
   "name": "app-movil-jca",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
