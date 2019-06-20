@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -6,7 +7,31 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  
 
-  constructor() {}
+  constructor( public alertController: AlertController) { }
 
+  async presentAlertConfirm() {
+    const alert = await this.alertController.create({
+      header: 'Acceso',
+      message: 'Seleccione su acceso',
+      buttons: [
+        {
+          text: 'Entrada',
+          cssClass: 'primary',
+          handler: (blah) => {
+            console.log('Confirm Cancel: blah');
+          }
+        }, {
+          text: 'Salida',
+          cssClass: 'danger',
+          handler: () => {
+            console.log('Confirm Okay');
+          }
+        }
+      ]
+    });
+
+    await alert.present();
+  }
 }

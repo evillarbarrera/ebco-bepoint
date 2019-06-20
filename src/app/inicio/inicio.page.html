@@ -1,36 +1,22 @@
-<app-header></app-header>
-
-<ion-content>
-    <ion-card>
-        <ion-card-header>
-            <ion-card-subtitle>Noticias</ion-card-subtitle>
-        </ion-card-header>
-
-        <ion-card-content>
-
-        </ion-card-content>
-    </ion-card>
-</ion-content>
-
 <ion-tabs>
     <ion-tab-bar slot="bottom" type="ios">
-        <ion-tab-button routerLink="/home" routerLinkActive="router-link-active">
+        <ion-tab-button href="/home">
             <ion-label>Home</ion-label>
             <ion-icon name="home"></ion-icon>
             <!-- <ion-badge>6</ion-badge> -->
         </ion-tab-button>
 
-        <ion-tab-button (click)="presentAlertConfirm()">
+        <ion-tab-button tab="settings">
             <ion-label>Acceso</ion-label>
             <ion-icon name="pin"></ion-icon>
         </ion-tab-button>
 
-        <ion-tab-button routerLink="/inspection" routerLinkActive="router-link-active">
+        <ion-tab-button href="/inspection">
             <ion-label>Rondas</ion-label>
             <ion-icon name="git-compare"></ion-icon>
         </ion-tab-button>
 
-        <ion-tab-button routerLink="/turns" routerLinkActive="router-link-active">
+        <ion-tab-button tab="turns">
             <ion-label>Turno</ion-label>
             <ion-icon name="filing"></ion-icon>
         </ion-tab-button>

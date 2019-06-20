@@ -1,9 +1,30 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>inspection</ion-title>
-  </ion-toolbar>
-</ion-header>
-
+<app-header></app-header>
 <ion-content>
-
+    <ion-title>Rondas</ion-title>
 </ion-content>
+
+<ion-tabs>
+    <ion-tab-bar slot="bottom" type="ios">
+        <ion-tab-button routerLink="/home" routerLinkActive="router-link-active">
+            <ion-label>Home</ion-label>
+            <ion-icon name="home"></ion-icon>
+            <!-- <ion-badge>6</ion-badge> -->
+        </ion-tab-button>
+
+        <ion-tab-button (click)="presentAlertConfirm()">
+            <ion-label>Acceso</ion-label>
+            <ion-icon name="pin"></ion-icon>
+        </ion-tab-button>
+
+        <ion-tab-button routerLink="/inspection" routerLinkActive="router-link-active">
+            <ion-label>Rondas</ion-label>
+            <ion-icon name="git-compare"></ion-icon>
+        </ion-tab-button>
+
+        <ion-tab-button routerLink="/turns" routerLinkActive="router-link-active">
+            <ion-label>Turno</ion-label>
+            <ion-icon name="filing"></ion-icon>
+        </ion-tab-button>
+
+    </ion-tab-bar>
+</ion-tabs>
