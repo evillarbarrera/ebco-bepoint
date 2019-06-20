@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { AlertController } from '@ionic/angular';
+import {  HttpClient  } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
 
 @Component({
   selector: 'app-home',
@@ -7,9 +10,14 @@ import { AlertController } from '@ionic/angular';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  
 
-  constructor( public alertController: AlertController) { }
+  
+public items:any;
+  constructor( 
+    public alertController: AlertController,
+    public http: HttpClient) {
+   this.loadData();
+   }
 
   async presentAlertConfirm() {
     const alert = await this.alertController.create({
@@ -34,4 +42,13 @@ export class HomePage {
 
     await alert.present();
   }
+  
+  loadData(){
+    let data:Observable<any>;
+    data = this.http.get('https://apirestcontroldepersonal20190617032202.azurewebsites.net/api/noticia');
+    data.subscribe(result => {
+      this.items = result;
+    })
+  }
+
 }
