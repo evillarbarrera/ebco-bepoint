@@ -48,6 +48,7 @@ public items:any;
     data = this.http.get('https://apirestcontroldepersonal20190617032202.azurewebsites.net/api/noticia');
     data.subscribe(result => {
       this.items = result;
+      console.log(data);
     })
   }
 

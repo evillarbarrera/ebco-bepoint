@@ -1,15 +1,39 @@
-<app-header></app-header>
+<ion-header>
+    <ion-toolbar>
+        <ion-title>Beacons</ion-title>
+    </ion-toolbar>
+</ion-header>
 
 <ion-content>
-    <ion-card *ngFor="let item of items">
-        <ion-card-header>
-            <ion-card-subtitle>{{ item.titulo }}</ion-card-subtitle>
-        </ion-card-header>
-
+    <div *ngIf="!beaconData; else beacosFound">
+        <ion-card>
+            <ion-card-header>Buscar Beacons</ion-card-header>
+        </ion-card>
         <ion-card-content>
-            <ion-label>{{ item.descripcion }}</ion-label>
+            <ion-button (click)="Buscarbeacons()">Buscar</ion-button>
         </ion-card-content>
-    </ion-card>
+    </div>
+
+    <ng-template #beacosFound>
+        <ion-card>
+            <ion-card-header>
+                Beacons Bepoint
+            </ion-card-header>
+            <ion-card-content>
+                <ion-list>
+                    <ion-item>{{ beaconData.adress }}</ion-item>>
+                    <ion-item>{{ beaconData.temperature }}</ion-item>
+                    <ion-item>{{ beaconData.rssi }}</ion-item>
+                    <ion-item>{{ beaconData.txPower }}</ion-item>
+                    <ion-item>{{ beaconData.name }}</ion-item>
+                    <ion-item>{{ beaconData.voltage }}</ion-item>
+                    <ion-item>{{ beaconData.url }}</ion-item>
+
+                </ion-list>
+
+            </ion-card-content>
+        </ion-card>
+    </ng-template>
 </ion-content>
 
 <ion-tabs>
