@@ -9,8 +9,14 @@
         <ion-card>
             <ion-card-header>Buscar Beacons</ion-card-header>
         </ion-card>
+
         <ion-card-content>
-            <ion-buttons (click)="Buscarbeacons()" color="primary">Buscar</ion-buttons>
+            <ion-buttons>
+                <button ion-button (click)='Buscarbeacons()' color="primary">Buscar 3</button>
+            </ion-buttons>
+
+            <button ion-button (click)='Buscarbeacons()' color="primary">Buscar</button>
+
         </ion-card-content>
 
     </div>
@@ -43,10 +49,10 @@
             <!-- <ion-badge>6</ion-badge> -->
         </ion-tab-button>
 
-        <!-- <ion-tab-button (click)="presentAlertConfirm()">
+        <ion-tab-button (click)="Buscarbeacons()">
             <ion-label>Acceso</ion-label>
             <ion-icon name="pin"></ion-icon>
-        </ion-tab-button> -->
+        </ion-tab-button>
 
         <ion-tab-button routerLink="/inspection" routerLinkActive="router-link-active">
             <ion-label>Rondas</ion-label>
