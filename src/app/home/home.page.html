@@ -1,6 +1,6 @@
 <app-header></app-header>
 
-<ion-content>
+<ion-content [scrollEvents]="true">
     <ion-card *ngFor="let item of items">
         <ion-card-header>
             <ion-card-subtitle>{{ item.titulo }}</ion-card-subtitle>

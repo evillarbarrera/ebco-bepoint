@@ -1,5 +1,5 @@
 import { Component, ChangeDetectorRef } from "@angular/core";
-import {  Platform } from '@ionic/angular';
+import { Platform } from '@ionic/angular';
 
 @Component({
   selector: "app-beacon",
@@ -8,21 +8,19 @@ import {  Platform } from '@ionic/angular';
 })
 export class BeaconPage  {
   beaconData: any;
-  constructor(private change: ChangeDetectorRef,private platform: Platform) {}
+  constructor(private change: ChangeDetectorRef, private platform: Platform) {}
 
 
-  Buscarbeacons() {
-    this.platform.ready().then(() => {
-      evothings.eddystone.startScan(
-        data => {
-          this.beaconData = data;
-          console.log(this.beaconData);
-          setTimeout(() => {
-            this.change.detectChanges();
-          }, 1000);
-        },
-        error => console.error(error)
-      );
-    });
+  Buscarbeacons(){
+    this.platform.ready().then(() =>{
+      evothings.eddystone.startScan((data) => {
+       this.beaconData=data;
+     
+       setTimeout(()=>{
+         this.change.detectChanges();
+       }, 3000);
+      }, error => console.error(error));
+    })
   }
+
 }

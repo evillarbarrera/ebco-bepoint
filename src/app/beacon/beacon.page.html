@@ -4,33 +4,32 @@
     </ion-toolbar>
 </ion-header>
 
-<ion-content>
-    <div *ngIf="!beaconData; else beacosFound">
+<ion-content padding>
+    <div *ngIf="!beaconData; else beaconFound ">
         <ion-card>
             <ion-card-header>Buscar Beacons</ion-card-header>
         </ion-card>
         <ion-card-content>
-            <ion-button (click)="Buscarbeacons()">Buscar</ion-button>
+            <ion-buttons (click)="Buscarbeacons()" color="primary">Buscar</ion-buttons>
         </ion-card-content>
+
     </div>
 
-    <ng-template #beacosFound>
+    <ng-template #beaconFound>
         <ion-card>
             <ion-card-header>
                 Beacons Bepoint
             </ion-card-header>
             <ion-card-content>
                 <ion-list>
-                    <ion-item>{{ beaconData.adress }}</ion-item>>
-                    <ion-item>{{ beaconData.temperature }}</ion-item>
+                    <ion-item>{{ beaconData.address }}</ion-item>>
+                    <!-- <ion-item>{{ beaconData.temperature }}</ion-item>
                     <ion-item>{{ beaconData.rssi }}</ion-item>
                     <ion-item>{{ beaconData.txPower }}</ion-item>
                     <ion-item>{{ beaconData.name }}</ion-item>
                     <ion-item>{{ beaconData.voltage }}</ion-item>
-                    <ion-item>{{ beaconData.url }}</ion-item>
-
+                    <ion-item>{{ beaconData.url }}</ion-item> -->
                 </ion-list>
-
             </ion-card-content>
         </ion-card>
     </ng-template>
@@ -44,10 +43,10 @@
             <!-- <ion-badge>6</ion-badge> -->
         </ion-tab-button>
 
-        <ion-tab-button (click)="presentAlertConfirm()">
+        <!-- <ion-tab-button (click)="presentAlertConfirm()">
             <ion-label>Acceso</ion-label>
             <ion-icon name="pin"></ion-icon>
-        </ion-tab-button>
+        </ion-tab-button> -->
 
         <ion-tab-button routerLink="/inspection" routerLinkActive="router-link-active">
             <ion-label>Rondas</ion-label>
