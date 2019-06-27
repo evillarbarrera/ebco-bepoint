@@ -5,41 +5,28 @@
 </ion-header>
 
 <ion-content padding>
-    <div *ngIf="!beaconData; else beaconFound ">
-        <ion-card>
-            <ion-card-header>Buscar Beacons</ion-card-header>
-        </ion-card>
+    <ion-card>
+        <ion-card-header>Buscar Beacons</ion-card-header>
+    </ion-card>
 
+    <ion-card>
+        <ion-card-header>
+            Beacons Bepoint
+        </ion-card-header>
         <ion-card-content>
-            <ion-buttons>
-                <button ion-button (click)='Buscarbeacons()' color="primary">Buscar 3</button>
-            </ion-buttons>
-
-            <button ion-button (click)='Buscarbeacons()' color="primary">Buscar</button>
-
+            <ion-list>
+                <ion-item>{{ address }}</ion-item>
+                <ion-item>{{ temperature }}</ion-item>
+                <ion-item>{{ rssi }}</ion-item>
+                <ion-item>{{ nombre }}</ion-item>
+                <ion-item>{{ txPower }}</ion-item>
+                <ion-item>{{ voltage }}</ion-item>
+                <ion-item>{{ url }}</ion-item>
+            </ion-list>
         </ion-card-content>
-
-    </div>
-
-    <ng-template #beaconFound>
-        <ion-card>
-            <ion-card-header>
-                Beacons Bepoint
-            </ion-card-header>
-            <ion-card-content>
-                <ion-list>
-                    <ion-item>{{ beaconData.address }}</ion-item>>
-                    <!-- <ion-item>{{ beaconData.temperature }}</ion-item>
-                    <ion-item>{{ beaconData.rssi }}</ion-item>
-                    <ion-item>{{ beaconData.txPower }}</ion-item>
-                    <ion-item>{{ beaconData.name }}</ion-item>
-                    <ion-item>{{ beaconData.voltage }}</ion-item>
-                    <ion-item>{{ beaconData.url }}</ion-item> -->
-                </ion-list>
-            </ion-card-content>
-        </ion-card>
-    </ng-template>
+    </ion-card>
 </ion-content>
+
 
 <ion-tabs>
     <ion-tab-bar slot="bottom" type="ios">
@@ -49,7 +36,7 @@
             <!-- <ion-badge>6</ion-badge> -->
         </ion-tab-button>
 
-        <ion-tab-button (click)="Buscarbeacons()">
+        <ion-tab-button>
             <ion-label>Acceso</ion-label>
             <ion-icon name="pin"></ion-icon>
         </ion-tab-button>
@@ -64,8 +51,8 @@
             <ion-icon name="filing"></ion-icon>
         </ion-tab-button>
 
-        <ion-tab-button routerLink="/beacon">
-            <ion-label>Beacon</ion-label>
+        <ion-tab-button (click)="Buscarbeacons()">
+            <ion-label>Buscar</ion-label>
             <ion-icon name="move"></ion-icon>
         </ion-tab-button>
 
