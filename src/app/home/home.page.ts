@@ -31,12 +31,14 @@ public items:any;
           cssClass: 'primary',
           handler: (blah) => {
             console.log('Confirm Cancel: blah');
+            this.Add("Entrada");
           }
         }, {
           text: 'Salida',
           cssClass: 'danger',
           handler: () => {
             console.log('Confirm Okay');
+            this.Add("Salida");
           }
         }
       ]
@@ -54,9 +56,9 @@ public items:any;
     })
   }
 
-  Add(){
-    console.log("Add")
-    this.share.Create(this.date_access)
+  Add(dir){
+    console.log(dir)
+    this.share.Create(dir)
   }
 
 }

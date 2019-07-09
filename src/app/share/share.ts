@@ -1,6 +1,8 @@
 import { Injectable } from "@angular/core";
 import { Headers, RequestMethod, RequestOptions } from "@angular/http";
 import {  HttpClient  } from '@angular/common/http';
+import { getLocaleDateTimeFormat } from '@angular/common';
+import { debugOutputAstAsTypeScript } from '@angular/compiler';
 // import "rxjs/add/operator/map";
 
 @Injectable()
@@ -12,16 +14,24 @@ export class ShareService {
     return this.http.get(this.url);
     //.map(res => res.json());
   }
-  Create(name) {
+  Create(dir) {
       console.log("create")
-
+     
+      var today = new Date();
+      var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+      var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+      var dateTime = date+' '+time;
+      
+      let direccion: string = dir;
+      let centro: string = "Puente Alto";
+      
       let acceso = {
         "id": 1,
-        "fecha": "2019-07-08T20:48:01.742938+00:00",
-        "direccion": "Test Emmanuel ",
+        "fecha": dateTime,
+        "direccion": direccion,
         "idBeacon": 4,
-        "centro": "Prueba Emmanuel",
-        "fecha_registro": "2019-07-08T20:48:01.742938+00:00",
+        "centro": centro,
+        "fecha_registro": dateTime,
         "idTrabajador": 7
       };
 
