@@ -1,6 +1,11 @@
 <app-header></app-header>
-
+<ion-buttons>
+    <ion-button (click)="Add()">
+        Guardar
+    </ion-button>
+</ion-buttons>
 <ion-content scrollEvents="true">
+
     <ion-card *ngFor="let item of items">
         <ion-card-header>
             <ion-card-subtitle>{{ item.titulo }}</ion-card-subtitle>
@@ -11,6 +16,7 @@
         </ion-card-content>
     </ion-card>
 </ion-content>
+
 
 <ion-tabs>
     <ion-tab-bar slot="bottom" type="ios">

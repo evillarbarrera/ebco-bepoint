@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import {  HttpClient  } from '@angular/common/http';
 import { Observable } from 'rxjs';
-
+import { ShareService } from "../share/share";
 
 @Component({
   selector: 'app-home',
@@ -11,11 +11,13 @@ import { Observable } from 'rxjs';
 })
 export class HomePage {
 
+  date_access: string;
   
 public items:any;
   constructor( 
     public alertController: AlertController,
-    public http: HttpClient) {
+    public http: HttpClient,
+    public share: ShareService) {
    this.loadData();
    }
 
@@ -50,6 +52,11 @@ public items:any;
       this.items = result;
       console.log(data);
     })
+  }
+
+  Add(){
+    console.log("Add")
+    this.share.Create(this.date_access)
   }
 
 }
