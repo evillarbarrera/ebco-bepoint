@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { AlertController } from '@ionic/angular';
+import { AlertController, Platform } from '@ionic/angular';
 import {  HttpClient  } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ShareService } from "../share/share";
+
 
 @Component({
   selector: 'app-home',
@@ -12,16 +13,20 @@ import { ShareService } from "../share/share";
 export class HomePage {
 
   date_access: string;
+  beacons: any = 0;
+  beaconData: any;
   
 public items:any;
   constructor( 
     public alertController: AlertController,
     public http: HttpClient,
-    public share: ShareService) {
+    public share: ShareService,
+    private platform: Platform) {
    this.loadData();
    }
 
   async presentAlertConfirm() {
+    evothings.eddystone.stopScan();
     const alert = await this.alertController.create({
       header: 'Acceso',
       message: 'Seleccione su acceso',
@@ -32,6 +37,7 @@ public items:any;
           handler: (blah) => {
             console.log('Confirm Cancel: blah');
             this.Add("Entrada");
+            
           }
         }, {
           text: 'Salida',
@@ -42,6 +48,17 @@ public items:any;
           }
         }
       ]
+    });
+
+    await alert.present();
+  }
+
+  async UsuarioIncorrecto() {
+    const alert = await this.alertController.create({
+      header: 'Informacion',
+      subHeader: 'Ubicacion',
+      message: 'No se encuentra en la ubicacion de acceso',
+      buttons: ['OK']
     });
 
     await alert.present();
@@ -57,8 +74,19 @@ public items:any;
   }
 
   Add(dir){
-    console.log(dir)
     this.share.Create(dir)
   }
+
+  Buscarbeacons(){
+      this.platform.ready().then(() =>{
+         evothings.eddystone.startScan((data) => {
+          this.beaconData=data;
+          this.beacons =  this.beaconData.address;
+             this.presentAlertConfirm()
+         }, error => console.error( 
+           this.UsuarioIncorrecto()
+         ));
+       })    
+   }
 
 }
