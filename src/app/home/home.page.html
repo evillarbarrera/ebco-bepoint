@@ -1,7 +1,9 @@
 <app-header></app-header>
 
 <ion-content scrollEvents="true">
-
+    <ion-card>
+        <ion-card-title> {{ device_id }}</ion-card-title>
+    </ion-card>
     <ion-card *ngFor="let item of items">
         <ion-card-header>
             <ion-card-subtitle>{{ item.titulo }}</ion-card-subtitle>
@@ -27,20 +29,20 @@
             <ion-icon name="pin"></ion-icon>
         </ion-tab-button>
 
-        <ion-tab-button routerLink="/inspection" routerLinkActive="router-link-active">
+        <!-- <ion-tab-button routerLink="/inspection" routerLinkActive="router-link-active">
             <ion-label>Rondas</ion-label>
             <ion-icon name="git-compare"></ion-icon>
-        </ion-tab-button>
+        </ion-tab-button> -->
 
         <ion-tab-button routerLink="/turns" routerLinkActive="router-link-active">
             <ion-label>Turno</ion-label>
             <ion-icon name="filing"></ion-icon>
         </ion-tab-button>
 
-        <ion-tab-button routerLink="/beacon">
+        <!-- <ion-tab-button routerLink="/beacon">
             <ion-label>Beacon</ion-label>
             <ion-icon name="move"></ion-icon>
-        </ion-tab-button>
+        </ion-tab-button> -->
 
     </ion-tab-bar>
 </ion-tabs>

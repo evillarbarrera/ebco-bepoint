@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { TurnsPage } from './turns.page';
 import { ComponentsModule } from '../components/components.module';
+import { HomePageModule } from '../home/home.module';
 
 const routes: Routes = [
   {
