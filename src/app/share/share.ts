@@ -14,6 +14,7 @@ export class ShareService {
     return this.http.get(this.url);
     //.map(res => res.json());
   }
+
   Create(dir) {
       console.log("create")
      
@@ -48,5 +49,7 @@ export class ShareService {
         console.log(error);
       });
   }
+
+
 
 }

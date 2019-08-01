@@ -4,9 +4,11 @@ import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { ShareService } from "../share/share";
 
-import { UniqueDeviceID } from '@ionic-native/unique-device-id/ngx';
-import { Uid } from '@ionic-native/uid/ngx';
-
+import { UniqueDeviceID } from "@ionic-native/unique-device-id/ngx";
+import { Uid } from "@ionic-native/uid/ngx";
+import { AndroidPermissions } from '@ionic-native/android-permissions/ngx';
+import { LoadingController } from "@ionic/angular";
+import { StorageService, Trabajador } from "../services/storage.service";
 
 @Component({
   selector: "app-home",
@@ -14,22 +16,32 @@ import { Uid } from '@ionic-native/uid/ngx';
   styleUrls: ["home.page.scss"]
 })
 export class HomePage {
+
   date_access: string;
   beaconData: any;
   device_id: any;
-
+  loading: any;
   public items: any;
+
+  //Storage
+  trabajadores: Trabajador[] = [];
+
   constructor(
     public alertController: AlertController,
     public http: HttpClient,
     public share: ShareService,
     private platform: Platform,
     private uniqueDeviceID: UniqueDeviceID,
-    private uid: Uid  ) {
+    private uid: Uid,
+    private androidPermissions: AndroidPermissions,
+    public loadingController: LoadingController,
+    private StorageService: StorageService
+  ) {
+    //this.getID_UID("IMEI");
+    this.LoadTrabajadores();
+    this.getImei();
+    this.loadData();
     
-      this.loadData();
-      this.getID_UID("IMEI");
-   
   }
 
   async presentAlertConfirm() {
@@ -62,6 +74,7 @@ export class HomePage {
 
   async UsuarioIncorrecto() {
     evothings.eddystone.stopScan();
+
     const alert = await this.alertController.create({
       header: "Informacion",
       subHeader: "Ubicacion",
@@ -73,12 +86,22 @@ export class HomePage {
 
   loadData() {
     let data: Observable<any>;
+    this.presentLoading("Espere...");
+
     data = this.http.get(
       "https://apirestcontroldepersonal20190617032202.azurewebsites.net/api/noticia"
     );
     data.subscribe(result => {
       this.items = result;
+      this.loading.dismiss();
     });
+  }
+
+  async presentLoading(message: string) {
+    this.loading = await this.loadingController.create({
+      message
+    });
+    return this.loading.present();
   }
 
   Add(dir) {
@@ -86,7 +109,6 @@ export class HomePage {
   }
 
   Buscarbeacons() {
-    evothings.eddystone.stopScan();
     this.platform.ready().then(() => {
       evothings.eddystone.startScan(
         data => {
@@ -97,30 +119,32 @@ export class HomePage {
     });
   }
 
-  getUniqueDeviceID() {
-    this.uniqueDeviceID.get()
-      .then((uuid: any) => {
-        console.log(uuid);
-        //this.device_id = uuid.IMEI;
-      })
-      .catch((error: any) => {
-        console.log(error);
-        this.device_id = "Error! ${error}";
-      });
+  async getImei() {
+    const { hasPermission } = await this.androidPermissions.checkPermission(
+      this.androidPermissions.PERMISSION.READ_PHONE_STATE
+    );
+   
+    if (!hasPermission) {
+      const result = await this.androidPermissions.requestPermission(
+        this.androidPermissions.PERMISSION.READ_PHONE_STATE
+      );
+   
+      if (!result.hasPermission) {
+        throw new Error('Permissions required');
+      }
+   
+      // ok, a user gave us permission, we can get him identifiers after restart app
+      return;
+    }
+    this.device_id = this.uid.IMEI;
+     return this.uid.IMEI
+   }
+
+   LoadTrabajadores() {
+    this.StorageService.getTrabajadores().then(trabajadores => {
+      this.trabajadores = trabajadores;
+    });
   }
 
-  getID_UID(type){
-    if(type == "IMEI"){
-      this.device_id = this.uid.IMEI;
-     // return this.uid.IMEI;
-    }else if(type == "ICCID"){
-      return this.uid.ICCID;
-    }else if(type == "IMSI"){
-      return this.uid.IMSI;
-    }else if(type == "MAC"){
-      return this.uid.MAC;
-    }else if(type == "UUID"){
-      return this.uid.UUID;
-    }
-  }
+ 
 }

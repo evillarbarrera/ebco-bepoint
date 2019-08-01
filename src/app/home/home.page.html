@@ -1,9 +1,15 @@
 <app-header></app-header>
 
-<ion-content scrollEvents="true">
-    <ion-card>
-        <ion-card-title> {{ device_id }}</ion-card-title>
+<ion-content>
+    <ion-card *ngFor="let trabajador of trabajadores">
+        <div>
+            <ion-item>
+                <ion-avatar slot="start"><img src="https://us.123rf.com/450wm/garikprost/garikprost1702/garikprost170200021/73033781-icono-avatar-guardia-en-gafas-negras.jpg?ver=6"></ion-avatar>
+                <ion-card-subtitle>Bienvenido: {{ trabajador.nombre }}</ion-card-subtitle>
+            </ion-item>
+        </div>
     </ion-card>
+
     <ion-card *ngFor="let item of items">
         <ion-card-header>
             <ion-card-subtitle>{{ item.titulo }}</ion-card-subtitle>

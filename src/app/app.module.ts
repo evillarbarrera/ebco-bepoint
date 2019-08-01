@@ -11,8 +11,8 @@ import { ShareService } from "../app/share/share";
 import { HttpClientModule } from "@angular/common/http";
 import { UniqueDeviceID } from "@ionic-native/unique-device-id/ngx";
 import { Uid } from "@ionic-native/uid/ngx";
-
-
+import { AndroidPermissions } from '@ionic-native/android-permissions/ngx';
+import { IonicStorageModule } from '@ionic/storage';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -21,7 +21,8 @@ import { Uid } from "@ionic-native/uid/ngx";
     IonicModule.forRoot(),
     AppRoutingModule,
     ComponentsModule,
-    HttpClientModule
+    HttpClientModule,
+    IonicStorageModule.forRoot()
   ],
   providers: [
     StatusBar,
@@ -30,6 +31,7 @@ import { Uid } from "@ionic-native/uid/ngx";
     HttpClientModule,
     UniqueDeviceID,
     Uid,
+    AndroidPermissions,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

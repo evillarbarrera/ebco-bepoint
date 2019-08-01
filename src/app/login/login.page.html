@@ -11,12 +11,19 @@
         </ion-card-header>
 
         <ion-card-content class="input-login" position="floating">
-            <ion-input slot="start" placeholder="INGRESA TU RUT"></ion-input>
+            <ion-input [(ngModel)]="rut" slot="start" placeholder="INGRESA TU RUT"></ion-input>
         </ion-card-content>
+
+        <ion-card>
+            <ion-card-title> IMEI : {{ device_id }}</ion-card-title>
+            <!-- <ion-card-title> Trabajador : {{ trabajador }}</ion-card-title>
+            <ion-card-title> IMEI trabajador : {{ device_id_trabajador }}</ion-card-title> -->
+        </ion-card>
 
     </ion-card>
 
-    <ion-button routerLink="/home" routerLinkActive="router-link-active" class="button" color="success" expand="block">Ingresar</ion-button>
+    <ion-button (click)="GetLogin()" routerLinkActive="router-link-active" class="button" color="success" expand="block">Ingresar</ion-button>
+    <!-- <ion-button routerLink="/home" routerLinkActive="router-link-active" class="button" color="success" expand="block">Ingresar</ion-button> -->
 
 
 </ion-content>

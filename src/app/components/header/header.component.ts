@@ -7,10 +7,13 @@ import { AlertController } from '@ionic/angular';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
+  
 
   constructor(public alertController: AlertController) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    
+  }
 
   async presentAlert() {
     const alert = await this.alertController.create({
