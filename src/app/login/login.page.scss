@@ -3,7 +3,16 @@
 }
 
 .title {
-    font-family: 'Istok Web', sans-serif;
+    text-align: center;
+    font-size: 200%;
+}
+
+.subtitle {
+    text-align: center;
+    margin-top: 15%;
+}
+
+.subtitle2 {
     text-align: center;
 }
 
@@ -18,4 +27,28 @@
 .button {
     margin-left: 5%;
     margin-right: 5%;
+}
+
+.bepoint-food {
+    float: right;
+    margin-right: 35%;
+    margin-bottom: 5%;
+}
+
+.posicion-login {
+    width: 60%;
+    margin-left: 20%;
+    margin-top: 10%;
+}
+
+.button_ingreso {
+    height: -webkit-fill-available;
+}
+
+.input_rut {
+    font-size: 100%;
+    margin-top: 4%;
+    width: 90%;
+    margin-left: 5%;
+    text-align: center;
 }
