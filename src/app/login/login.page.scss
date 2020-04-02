@@ -4,45 +4,57 @@
 
 .title {
     text-align: center;
-    font-size: 200%;
-}
-
-.subtitle {
-    text-align: center;
-    margin-top: 15%;
-}
-
-.subtitle2 {
-    text-align: center;
+    font-size: 130%;
+    color: white;
+    margin-top: 10%;
 }
 
 .input-login {
-    background-color: #ADAFB0;
-    color: white;
     align-content: center;
     text-align: center;
     font-family: 'Istok Web', sans-serif;
+    border: 4px solid skyblue;
+    border-radius: 25px;
+    width: 70%;
+    margin-left: 15%;
+    margin-top: 10%;
+    color: #4d6a8a;
+}
+
+.input-login2 {
+    align-content: center;
+    text-align: center;
+    font-family: 'Istok Web', sans-serif;
+    border: 4px solid skyblue;
+    border-radius: 25px;
+    width: 70%;
+    margin-left: 15%;
+    margin-top: 5%;
+    color: #4d6a8a;
 }
 
 .button {
-    margin-left: 5%;
-    margin-right: 5%;
+    border-radius: 25px;
+    width: 70%;
+    margin-left: 15%;
+    margin-top: 5%;
+    height: 9%;
+    background-color: white;
+    color: #4d6a8a;
 }
 
 .bepoint-food {
+    margin-right: 40%;
+    margin-bottom: 2%;
+    margin-top: 2%;
     float: right;
-    margin-right: 35%;
-    margin-bottom: 5%;
+    width: 20%;
 }
 
 .posicion-login {
     width: 60%;
     margin-left: 20%;
-    margin-top: 10%;
-}
-
-.button_ingreso {
-    height: -webkit-fill-available;
+    margin-top: 20%;
 }
 
 .input_rut {
@@ -51,4 +63,22 @@
     width: 90%;
     margin-left: 5%;
     text-align: center;
+}
+
+.menu-principal {
+    background: #edeef0;
+    height: 100%;
+    // text-align: center;
+    background-image: url("src/assets/img/fondo.png");
+    /* Full height */
+    // /* Center and scale the image nicely */
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.icon-rs {
+    width: 30%;
+    margin-top: 20%;
+    margin-left: 35%;
 }

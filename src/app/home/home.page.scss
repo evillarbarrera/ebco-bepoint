@@ -1,1 +1,44 @@
+.menu-principal {
+    text-align: center;
+    // background-image: url("src/assets/img/fondo.png");
+    /* Full height */
+    height: 100%;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #46b4bc;
+}
 
+.title {
+    background-color: #007ba4;
+    color: white;
+}
+
+.button {
+    width: 90%;
+    margin-top: 5%;
+}
+
+.menu-button-1 {
+    border-radius: 25px;
+    width: 90%;
+    margin-top: 5%;
+    height: 9%;
+    background-color: #b3d7ff;
+    color: #4d6a8a;
+    text-align: left;
+    font-weight: bold;
+}
+
+.menu-button-2 {
+    width: 90%;
+    margin-left: 5%;
+}
+
+.menu-bienvenida {}
+
+.icon-rs {
+    width: 30%;
+    margin-top: 20%;
+}

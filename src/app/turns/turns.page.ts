@@ -27,7 +27,7 @@ export class TurnsPage implements OnInit {
           cssClass: "primary",
           handler: blah => {
             console.log("Confirm Cancel: blah");
-            this.Add("Entrada");
+           // this.Add("Entrada");
           }
         },
         {
@@ -35,7 +35,7 @@ export class TurnsPage implements OnInit {
           cssClass: "danger",
           handler: () => {
             console.log("Confirm Okay");
-            this.Add("Salida");
+            // this.Add("Salida");
           }
         }
       ]
@@ -56,9 +56,9 @@ export class TurnsPage implements OnInit {
     await alert.present();
   }
 
-  Add(dir) {
-    this.share.Create(dir);
-  }
+  // Add(dir) {
+  //   this.share.Create(dir);
+  // }
 
   Buscarbeacons() {
     this.platform.ready().then(() => {

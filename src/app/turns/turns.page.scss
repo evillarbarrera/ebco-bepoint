@@ -1,0 +1,26 @@
+.menu-principal {
+    text-align: center;
+    background-image: url("src/assets/img/fondo.png");
+    /* Full height */
+    height: 100%;
+    /* Center and scale the image nicely */
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.items-new {
+    margin-top: 1%;
+    margin-left: 8%;
+    width: 85%;
+}
+
+.items-text {
+    margin-left: 5%;
+    font-size: 80%
+}
+
+.items-img {
+    width: 30%;
+    height: 100%;
+}

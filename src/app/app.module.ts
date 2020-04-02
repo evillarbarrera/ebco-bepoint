@@ -13,6 +13,8 @@ import { UniqueDeviceID } from "@ionic-native/unique-device-id/ngx";
 import { Uid } from "@ionic-native/uid/ngx";
 import { AndroidPermissions } from '@ionic-native/android-permissions/ngx';
 import { IonicStorageModule } from '@ionic/storage';
+import { RestProvider } from  '../providers/rest/rest';
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],

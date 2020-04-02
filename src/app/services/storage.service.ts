@@ -17,18 +17,27 @@ const ITEMS_KEY = "my-trabajador";
   providedIn: "root"
 })
 export class StorageService {
+
+  public nombre_trabajador: any;
+  public id_trabajador:any;
+
   constructor(private storage: Storage) {}
 
   AddTrabajadores(trabajador: Trabajador): Promise<any> {
     return this.storage.get(ITEMS_KEY).then((trabajadores: Trabajador[]) => {
       if (trabajadores) {
         trabajadores.push(trabajador);
+        
         return this.storage.set(ITEMS_KEY, [trabajador]);
       } else {
         return this.storage.set(ITEMS_KEY, [trabajador]);
+       
       }
     });
   }
+
+  
+
 
   getTrabajadores(): Promise<Trabajador[]> {
     return this.storage.get(ITEMS_KEY);
@@ -68,6 +77,15 @@ export class StorageService {
         }
       }
       return this.storage.set(ITEMS_KEY, toKeep);
+    });
+  }
+
+  DeleteTrabajadoresAll(){
+    return this.storage.get(ITEMS_KEY).then((trabajadores: Trabajador[]) => {
+      if (!trabajadores || trabajadores.length === 0) {
+        return null;
+      }
+        this.storage.clear();
     });
   }
 }

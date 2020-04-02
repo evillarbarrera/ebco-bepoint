@@ -1,54 +1,17 @@
-<app-header></app-header>
+<ion-header>
+    <ion-toolbar>
 
-<ion-content>
-    <ion-card *ngFor="let trabajador of trabajadores">
-        <div>
-            <ion-item>
-                <ion-avatar slot="start"><img src="https://us.123rf.com/450wm/garikprost/garikprost1702/garikprost170200021/73033781-icono-avatar-guardia-en-gafas-negras.jpg?ver=6"></ion-avatar>
-                <ion-card-subtitle>Bienvenido: {{ trabajador.nombre }}</ion-card-subtitle>
-            </ion-item>
-        </div>
-    </ion-card>
+        <img src="assets/img/headgestion.png">
+    </ion-toolbar>
+</ion-header>
 
-    <ion-card *ngFor="let item of items">
-        <ion-card-header>
-            <ion-card-subtitle>{{ item.titulo }}</ion-card-subtitle>
-        </ion-card-header>
-
-        <ion-card-content>
-            <ion-label>{{ item.descripcion }}</ion-label>
-        </ion-card-content>
-    </ion-card>
-</ion-content>
-
-
-<ion-tabs>
-    <ion-tab-bar slot="bottom" type="ios">
-        <ion-tab-button routerLink="/home" routerLinkActive="router-link-active">
-            <ion-label>Home</ion-label>
-            <ion-icon name="home"></ion-icon>
-            <!-- <ion-badge>6</ion-badge> -->
-        </ion-tab-button>
-
-        <ion-tab-button (click)="Buscarbeacons()">
-            <ion-label>Acceso</ion-label>
-            <ion-icon name="pin"></ion-icon>
-        </ion-tab-button>
-
-        <!-- <ion-tab-button routerLink="/inspection" routerLinkActive="router-link-active">
-            <ion-label>Rondas</ion-label>
-            <ion-icon name="git-compare"></ion-icon>
-        </ion-tab-button> -->
-
-        <ion-tab-button routerLink="/turns" routerLinkActive="router-link-active">
-            <ion-label>Turno</ion-label>
-            <ion-icon name="filing"></ion-icon>
-        </ion-tab-button>
-
-        <!-- <ion-tab-button routerLink="/beacon">
-            <ion-label>Beacon</ion-label>
-            <ion-icon name="move"></ion-icon>
-        </ion-tab-button> -->
-
-    </ion-tab-bar>
-</ion-tabs>
+<div class="menu-principal">
+    <img src="assets/img/ebco.jpg">
+    <ion-title class="title">USUARIO: <a> {{ nombre }}</a> </ion-title>
+    <img routerLink="/profile" class="button" src="assets/img/fiscalizacion.png">
+    <!-- <img class="button" src="assets/img/noticias.png"> -->
+    <img routerLink="/sos" class="button" src="assets/img/sos.png">
+    <img (click)="CerrarSesion()" class="button" src="assets/img/cerrarsesion.png">
+    <img routerLink="/beacon" class="button" src="assets/img/cerrarsesion.png">
+    <img class="icon-rs" src="assets/img/iconosredes2.png">
+</div>

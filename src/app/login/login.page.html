@@ -1,38 +1,9 @@
-<ion-header>
-    <img src="assets/img/headjca.png">
-</ion-header>
-
-<ion-content slot="start">
-    <img class="posicion-login" src="assets/img/icon_login.png">
-
-    <ion-title class="title">BIENVENIDO</ion-title>
-    <ion-card-subtitle class="subtitle">Ingresar a tu perfil "JCA Security"</ion-card-subtitle>
-    <ion-card-subtitle class="subtitle2">con tu cedula de identidad</ion-card-subtitle>
-
-
-
-
-    <ion-item class="input_rut">
-        <ion-input [(ngModel)]="rut" placeholder="Rut"></ion-input>
-        <ion-button (click)="GetLogin()"><img class="button_ingreso" src="assets/img/button_ingresar.png"></ion-button>
-    </ion-item>
-
-
-    <!-- <ion-card>
-            <ion-card-title> IMEI : {{ device_id }}</ion-card-title>
-             <ion-card-title> Trabajador : {{ trabajador }}</ion-card-title>
-            <ion-card-title> IMEI trabajador : {{ device_id_trabajador }}</ion-card-title>cordova build android
- 
-        </ion-card> -->
-
-
-
-    <!-- <ion-button (click)="GetLogin()" routerLinkActive="router-link-active" class="button" color="success" expand="block">Ingresar</ion-button> -->
-    <!-- <ion-button routerLink="/home" routerLinkActive="router-link-active" class="button" color="success" expand="block">Ingresar</ion-button> -->
-
-
-</ion-content>
-
-<ion-footer>
-    <img class="bepoint-food" src="assets/img/food_bepoint.png">
-</ion-footer>
+<div class="menu-principal">
+    <img class="posicion-login" src="assets/img/logobepoint1.png">
+    <ion-title class="title">Ingresar a <a>BEPOINT GESTION</a></ion-title>
+    <ion-input class="input-login" [(ngModel)]="rut" placeholder="RUT USUARIO"></ion-input>
+    <ion-input class="input-login2" type="password" [(ngModel)]="pass" placeholder="CONTRASENA"></ion-input>
+    <!-- <button ion-button class="button" color="white" routerLink="/home">ENTRAR</button> -->
+    <button ion-button class="button" color="white" (click)="GetLogin()">ENTRAR</button>
+    <img class="icon-rs" src="assets/img/iconosredes2.png">
+</div>

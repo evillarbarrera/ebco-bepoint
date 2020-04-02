@@ -8,7 +8,10 @@ const routes: Routes = [
   { path: 'inspection', loadChildren: './inspection/inspection.module#InspectionPageModule' },
   { path: 'turns', loadChildren: './turns/turns.module#TurnsPageModule' },
   { path: 'inicio', loadChildren: './inicio/inicio.module#InicioPageModule' },
-  { path: 'beacon', loadChildren: './beacon/beacon.module#BeaconPageModule' }
+  { path: 'beacon', loadChildren: './beacon/beacon.module#BeaconPageModule' },
+  { path: 'profile', loadChildren: './profile/profile.module#ProfilePageModule' },
+  { path: 'new', loadChildren: './new/new.module#NewPageModule' },
+  { path: 'sos', loadChildren: './sos/sos.module#SosPageModule' }
 ];
 
 @NgModule({

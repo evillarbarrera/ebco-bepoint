@@ -1,0 +1,9 @@
+<app-header></app-header>
+<div class="menu-principal">
+    <ion-item class="items-new" *ngFor="let item of items">
+
+        <img class="items-img" src="assets/img/icon_new.png">
+        <ion-label class="ion-text-wrap items-text">{{ item.descripcion }}</ion-label>
+    </ion-item>
+</div>
+<app-footer></app-footer>

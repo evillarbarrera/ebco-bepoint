@@ -9,6 +9,8 @@ import { Uid } from "@ionic-native/uid/ngx";
 import { AndroidPermissions } from '@ionic-native/android-permissions/ngx';
 import { LoadingController } from "@ionic/angular";
 import { StorageService, Trabajador } from "../services/storage.service";
+import { Router } from "@angular/router";
+
 
 @Component({
   selector: "app-home",
@@ -21,6 +23,8 @@ export class HomePage {
   beaconData: any;
   device_id: any;
   loading: any;
+  nombre: any;
+  id_trabajador: any;
   public items: any;
 
   //Storage
@@ -35,12 +39,14 @@ export class HomePage {
     private uid: Uid,
     private androidPermissions: AndroidPermissions,
     public loadingController: LoadingController,
-    private StorageService: StorageService
+    private StorageService: StorageService,
+    private router: Router
   ) {
     //this.getID_UID("IMEI");
+ 
     this.LoadTrabajadores();
-    this.getImei();
-    this.loadData();
+    // this.getImei();
+    // this.loadData();
     
   }
 
@@ -55,7 +61,7 @@ export class HomePage {
           cssClass: "primary",
           handler: blah => {
             console.log("Confirm Cancel: blah");
-            this.Add("Entrada");
+           // this.Add("Entrada");
           }
         },
         {
@@ -63,7 +69,7 @@ export class HomePage {
           cssClass: "danger",
           handler: () => {
             console.log("Confirm Okay");
-            this.Add("Salida");
+           // this.Add("Salida");
           }
         }
       ]
@@ -104,9 +110,7 @@ export class HomePage {
     return this.loading.present();
   }
 
-  Add(dir) {
-    this.share.Create(dir);
-  }
+ 
 
   Buscarbeacons() {
     this.platform.ready().then(() => {
@@ -141,10 +145,30 @@ export class HomePage {
    }
 
    LoadTrabajadores() {
+    this.nombre  =  this.StorageService.nombre_trabajador;
+    this.id_trabajador =  this.StorageService.id_trabajador;
+    console.log( this.StorageService.nombre_trabajador);
+     console.log("LoadTrabajadores")
+
     this.StorageService.getTrabajadores().then(trabajadores => {
       this.trabajadores = trabajadores;
+      this.nombre =  this.trabajadores[0].nombre;
+      console.log(this.trabajadores);
+      console.log(this.nombre);
     });
+
+  
   }
+
+
+
+  CerrarSesion(){
+    console.log("CerrarSesion");
+    this.StorageService.DeleteTrabajadoresAll();
+    this.router.navigate(["/login"]);
+  }
+
+  
 
  
 }
