@@ -21,6 +21,7 @@ export class ProfilePage implements OnInit {
   dataFromService:any="";
   beaconData: any;
   result: any =  0;
+  nombre: any ="";
 
  
   id:any;
@@ -61,9 +62,7 @@ export class ProfilePage implements OnInit {
 
   
 
-  Buscarbeacons(){
-  
-    
+  Buscarbeacons(){    
 
     console.log(this.result)
 
@@ -72,12 +71,14 @@ export class ProfilePage implements OnInit {
    
       evothings.eddystone.startScan((data) => {
         var today = new Date();
+      
         alert(this.result);
 
         if(this.result == 0)
         {
         this.beaconData=data;
         console.log(this.beaconData.address,this.id)
+
           this.share.Create(this.beaconData.address,this.id);
           var today_pos = new Date();
           this.result = today.getSeconds() - today_pos.getSeconds();
@@ -88,7 +89,22 @@ export class ProfilePage implements OnInit {
              {
               this.beaconData=data;
               console.log(this.beaconData.address,this.id)
-                this.share.Create(this.beaconData.address,this.id);
+
+              if (this.beaconData.address = 'DF:25:38:46:1D:C1' ){
+                  this.nombre = 'PATIO DELANTERO';
+              }
+              
+              if (this.beaconData.address = 'F8:45:9C:99:CD:B8' ){
+                this.nombre = 'PATIO TRASERO';
+              }
+              
+              if (this.beaconData.address = 'F0:0F:36:70:72:E0' ){
+                this.nombre = 'LIVING';
+              }
+              
+
+
+                this.share.Create(this.nombre,this.id);
                 var today_pos = new Date();
                 this.result = today.getSeconds() - today_pos.getSeconds();
              }
